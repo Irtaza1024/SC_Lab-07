@@ -1,21 +1,21 @@
-# SE-314 Lab 07 — Test-First Programming II
+# SE-314 Lab 07: Test-First Programming II
 
 ## Project
-A small Java implementation of the social-network inference tasks in Lab 07.
+A compact Java solution to the social-network inference tasks from Lab 07.
 
 ## Files
-- `SocialNetwork.java`: builds the author-to-mentioned-users graph and ranks users by follower count.
-- `Tweet.java`: minimal tweet model and @mention extraction.
-- `SocialNetworkTest.java`: ten JUnit 4 test cases.
-- `Main.java`: sample program.
-- `pom.xml`: Maven project configuration.
+- `SocialNetwork.java`: constructs a graph linking each author to the users they mention, and ranks users by how many followers they have.
+- `Tweet.java`: a lightweight tweet model that also extracts @mentions.
+- `SocialNetworkTest.java`: a suite of ten JUnit 4 tests.
+- `Main.java`: a demo program.
+- `pom.xml`: the Maven build configuration.
 
-## Run in IntelliJ IDEA
+## Running in IntelliJ IDEA
 1. Open the `Lab07_SocialNetwork` folder as a project.
-2. Allow Maven to load dependencies; JUnit 4.13.2 is declared in `pom.xml`.
-3. Open `SocialNetworkTest.java` and click the green run icon beside the class or test methods.
-4. Run `Main.java` to view a sample graph.
-5. If using Terminal with Maven installed: `mvn test` and `mvn -q exec:java` (the latter requires adding the Maven exec plugin, or simply run Main in IntelliJ).
+2. Let Maven download the dependencies (JUnit 4.13.2 is already declared in `pom.xml`).
+3. Open `SocialNetworkTest.java` and press the green run icon next to the class or an individual test method.
+4. Run `Main.java` to see an example graph.
+5. From a terminal with Maven installed, use `mvn test` to run the tests and `mvn -q exec:java` to run the demo. The latter needs the Maven exec plugin added to the build; otherwise, just run `Main` from IntelliJ.
 
-## Important spec note
-The graph postcondition is underdetermined: tests check the required evidence (author mentions a user) rather than asserting an unnecessarily exact graph structure. Tied influencer order is intentionally not fixed.
+## Note on the specification
+The spec's graph postcondition leaves the exact structure open. For that reason, the tests verify only the required evidence (that an author has mentioned a given user) rather than demanding one particular graph layout. Likewise, the order of influencers with tied follower counts is deliberately left unspecified.
